@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Site Properties -->
+  <title>Homepage - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+
+  <style type="text/css">
+
+.visibility.example .overlay {
+  background-color: #FFFFFF;
+  padding: 0em;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+  background: transparent;
+}
+/* change style */
+.visibility.example .fixed.overlay {
+  position: fixed;
+  padding: 1em;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+    .bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://www.thebalancecareers.com/thmb/UZ2JKCYM2XBGpyvwQ-lTITqEnpQ=/4938x3292/filters:fill(auto,1)/always-seeking-for-opportunities-for-climbing-up-the-corporate-ladder-827546880-f82fa7878c7f448c810169c7e419320f.jpg");
+  min-height: 100%;
+}
+
+
+  </style>
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  <script src="../dist/components/sidebar.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item">Home</a>
+    <a class="item">Work</a>
+    <a class="item">Company</a>
+    <a class="item">Careers</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button">Log in</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="active item">Home</a>
+  <a class="item">About</a>
+  <a class="item" href="#team">Team</a>
+  <a class="item" href="#contact">Contact</a>
+  <a class="item" href="login.php">Login</a>
+  <a class="item">Signup</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher ">
+  <div class="ui inverte vertical masthead center aligned segment " style="background-position: center;background-size: cover;background-image: url('https://www.thebalancecareers.com/thmb/UZ2JKCYM2XBGpyvwQ-lTITqEnpQ=/4938x3292/filters:fill(auto,1)/always-seeking-for-opportunities-for-climbing-up-the-corporate-ladder-827546880-f82fa7878c7f448c810169c7e419320f.jpg');">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item" href="#about">About</a>
+        <a class="item" href="#team">Team</a>
+        <a class="item" href="#contact">Contact</a>
+        <div class="right item">
+          <a href="login.php" class="ui inverted teal button">Log in</a>
+          <a href="login.php" class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text container ">
+      <h1 class="ui header image inverted">
+        <img src="assets/Images/Product.png" class=" ui image"><br>
+        <div class="content">
+          <h2 class="ui teal  header"><b>Automatic Reciept Generator.</b></h2>
+          <a href="app.html" class="ui huge teal button">Get Started <i class="right arrow icon"></i></a>
+        </div>
+      </h1>
+     
+      
+      
+    </div>
+
+  </div>
+
+  <div class="ui  vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide left floated column">
+          <h1 class="ui header">About Us
+          </h1>
+          <h3 class="ui header">What Is ARG And What We Do?
+          </h3>
+          <p>ARG Stands for Automatic Reciept Generator which is a software for companies to make there customized invoice and reciept and then the software could then easily generate the bill... you'll just need to fill the amount thats it and ARG will generate the rest of the bill and make it downloadable in pdf format. </p>
+          <h3 class="ui header">Why ARG?</h3>
+          <p>ARG is very essential for the marts, restaurants, schools and colleges billing, as you need to do no extra work for your reciept design, maintainance and calculations you just need to costumize your bill by contacting us.</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="assets/images/header/header_illustration.png" class="ui large bordere roun image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned  column">
+          <a class="ui huge teal button"> Check Them Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <div class="ui middle aligned stackable grid container">
+        <div class="eight wide column"><h3 class="ui header">Our Team Members </h3>
+      <p>Our team consists of hardworking programmers and they have made this project of ours very well with a lot of hard work and enthusiasm. I want to thank them and present their names.</p>
+      <a class="ui large teal button">Read More</a></div>
+        
+      <div class="six wide right floated column w3-hide-small w3-hide-medium">
+        <img src="assets/images/team/05.png" class="ui large bordere roun image">
+      </div>
+    </div>
+    <h4 class="ui horizontal header divider">
+      --
+    </h4> 
+      <div class="ui equal width stackable internally celled grid">
+        <div class="center aligned row">
+          <div class="column">
+            <h3 class="ui inverted purple header">Shaikh Mudassir Aqueel</h3>
+            <p>
+              <img src="assets/images/arg.png" class="ui avatar image"> <b>Frontend & Backend Developer</b> <br>Handles the Frontend, Backend & DB of ARG
+            </p>
+          </div>
+          <div class="column">
+            <h3 class="ui inverted yellow header">Abdul-Kadir Qureshi</h3>
+            <p>
+              <img src="assets/images/arg.png" class="ui avatar image"> <b>Backend Developer</b> Handle the Backend PHP code
+            </p>
+          </div>
+        </div>
+      </div>
+      <h4 class="ui horizontal header divider">
+        --
+      </h4>
+      <div class="ui equal width stackable internally celled grid">
+        <div class="center aligned row">
+          <div class="column">
+            <h3 class="ui inverted orange header">Ayaaz Shekhani</h3>
+            <p>
+              <img src="assets/images/arg.png" class="ui avatar image"> <b>Programmer</b> 
+            </p>
+          </div>
+          <div class="column">
+            <h3 class="ui inverted pink header">Amin Shaikh</h3>
+            <p>
+              <img src="assets/images/arg.png" class="ui avatar image"> <b>Programmer</b> 
+            </p>
+          </div>
+        </div>
+      </div>
+      <h4 class="ui horizontal header divider">
+        --
+      </h4>
+      <h3 class="ui header">Contact Us</h3>
+      <p>Ask if there is any query regarding our project or if you want to make your costumized bills. just click on the contact button</p>
+      <a class="ui large red button">Contact Us</a>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class=" row">
+           
+          <div class="column">
+            <div class="ui equal width stackable internally celled grid">
+            <div class="row">
+              <div class="column">
+                <img src="assets/images/team/04.png" class="ui medium bordere roun image ">
+              </div>
+              <div class="column">
+                <img src="assets/images/team/02.png" class="ui medium bordere roun image">
+              </div>
+            </div>
+            </div>
+            
+          </div>
+        
+      
+        <div class="column">
+          <form class="ui form">
+            <div class="field">
+              <label>Email ID</label>
+              <input type="text" name="email" placeholder="Email ID">
+            </div>
+            <div class="field">
+              <label>Subject</label>
+              <input type="text" name="subject" placeholder="e.g: regarding making bill for my shop">
+            </div>
+            <div class="field">
+              <div class="ui teal checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>I agree to the Terms and Conditions</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Message</label>
+              <textarea name="message" rows="3"></textarea>
+            </div>
+            <button class="ui teal button" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="ui teal inverted vertical footer segment">
+    <div class="ui teal inverted container">
+      <div class="ui stackable teal divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted  header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">What Is ARG?</a>
+            <a href="#" class="item">Why ARG?</a>
+            <a href="#" class="item">Team</a>
+            <a href="#" class="item">Contact Us</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted  header">Services</h4>
+          <div class="ui inverted  link list">
+            <a href="#" class="item">Login</a>
+            <a href="#" class="item">Signup</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted   header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+
+  $('.overlay.example .overlay')
+  .visibility({
+    type   : 'fixed',
+    offset : 15 // give some space from top of screen
+  })
+;
+  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+
+</html>
